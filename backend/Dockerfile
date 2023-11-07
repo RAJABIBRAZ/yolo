@@ -1,7 +1,7 @@
 
 FROM node:16-alpine
 
-LABEL maintainer="Rajab <abdulhakim.rajab@studentmoringaschool.com>"
+LABEL maintainer="Simon Okello <simon.okello@studentmoringaschool.com>"
 
 WORKDIR /app
 

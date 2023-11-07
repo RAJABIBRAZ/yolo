@@ -1,38 +1,56 @@
-# Deploy Yolo Application to GKE(Google Kubernetes Engine) 
-# Steps
-- Clone the repository
-   
-    git clone https://github.com/RAJABIBRAZ/yolo
-    
+# Yolomy E-commerce Application: Deployment using Ansible & Vagrant
+## Prerequisites
+Make sure that you have the following installed:
+- [Vagrant](https://developer.hashicorp.com/vagrant/downloads)
+- [Ubuntu 22.04 Vagrant Box](https://app.vagrantup.com/bento/boxes/ubuntu-22.04)
 
-- Checkout to `yolo-ip4` branch
-    
-    git checkout yolo-ip4
-    
-- Set up Google SDK CLI then create a kubernetes cluster on GKE.
-    
-    gcloud container clusters create yolo-ip4 --num-nodes=3
-    
--  Setup Connection to created GKE cluster in with your local machine or cloud shell.
-    sh
-    gcloud container clusters get-credentials yolo-ip4 --zone us-central1-a --project <PROJECT_ID>
-    
--  Run manifest files to create deployment.
-    sh
-    kubectl apply -f manifests
-    
-- Confirm status of all deployments.
-    sh
-    kubectl get all
-    
-- Check status of service.
-    sh
-    kubectl get svc
-    
-- Get IP of the service in the browser.
+## Setting up Vagrant
+- Use this [link](https://developer.hashicorp.com/vagrant/downloads) to install install vagrant to your local machine. 
+- Once you have installed vagrant, verify that it is intalled by running this command:
+  
+  ```
+  vagrant --version
+  ```
+  You should expect something like 
+  
+  ```Vagrant 2.4.0```
 
+- If vagrant is successfully installed, proceed to install ubuntu 22.04:
+  
+  ``` 
+  vagrant box add bento/ubuntu-22.04
+  ```
 
-# Cleanup
-```sh
-kubectl delete -f manifests
+- After a successful ubuntu 22.04 installation, you can now proceed with the next steps.
+
+## Running the application
+
+#### Clone the repository
 ```
+git clone https://github.com/rajabIbraz/yolo.git
+```
+
+#### Change into the `yolo` folder
+```
+cd yolo
+```
+
+#### Checkout to `week6-ip3` branch
+```
+git checkout yolo-ip3
+```
+
+
+#### Automate deployment of the app using Ansible and Vagrant
+ ```
+ vagrant up --provision
+ ```
+
+#### Access the Yolomy Ecommerce on your browser
+
+```
+http://localhost:3000/
+```
+
+#### Go ahead and add a product (note that the price field only takes a numeric input)
+

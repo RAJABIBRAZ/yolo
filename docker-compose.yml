@@ -11,7 +11,7 @@ services:
     networks:
       - yolo_network
   backend:
-    image: rajabibraz/yolo-backend:v1.0
+    image: simonokello/yolo-backend:1.0.0
     build:
       context: ./backend
     container_name: yolo-backend
@@ -20,7 +20,7 @@ services:
     volumes:
       - ./backend:/app/backend/
     environment:
-      MONGO_URI: mongodb://mongo:56081/yoloip4
+      MONGO_URI: mongodb://mongo:27017/yolomy
 
     depends_on:
       - mongo
@@ -29,7 +29,7 @@ services:
       - yolo_network
 
   client:
-    image: rajabibraz/yolo-client:v1.0
+    image: rajabibraz/yolo-client:1.0.0
     build:
       context: ./client
     container_name: yolo-client

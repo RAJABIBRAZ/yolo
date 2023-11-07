@@ -1,0 +1,4 @@
+---
+# vars file for roles/repo-clone
+app_repo: https://github.com/RAJABIBRAZ/yolo.git
+branch_name: yolo-ip3

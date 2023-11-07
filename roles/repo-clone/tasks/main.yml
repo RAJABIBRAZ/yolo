@@ -1,0 +1,11 @@
+---
+
+- name: Clone yolo repo yolo-ip3 branch
+  git:
+    repo: '{{app_repo}}'
+    dest: '{{playbook_dir}}'
+    single_branch: true
+    version: '{{branch_name}}'
+    update: true
+  tags:
+    - clone
